@@ -1,0 +1,329 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "endpoint": "/api/v9/reporting/message",
+    "method": "POST",
+    "content_type": "application/json",
+    "notes": "breadcrumbs are node IDs from Discord's report menu tree and variant is the final node ID as string."
+  },
+  "report_types": {
+    "harassment_verbal": {
+      "description": "Verbally harassing me or someone else",
+      "report_type": "sub_general_harassment",
+      "breadcrumbs": [7, 76, 101],
+      "variant": "101",
+      "auto_submit": false
+    },
+    "harassment_vulgar_language": {
+      "description": "Using rude, vulgar, or offensive language (signal only)",
+      "report_type": "sub_vulgar_language",
+      "breadcrumbs": [7, 76, 103],
+      "variant": "103",
+      "auto_submit": true,
+      "note": "This is a signal-only report that doesn't create a ticket"
+    },
+    "harassment_hate_speech": {
+      "description": "Promoting hate based on identity or vulnerability",
+      "report_type": "sub_racist_or_discriminatory_language_or_imagery",
+      "breadcrumbs": [7, 76, 107],
+      "variant": "107",
+      "auto_submit": false
+    },
+    "spam": {
+      "description": "Spam",
+      "report_type": "sub_spam",
+      "breadcrumbs": [7, 98],
+      "variant": "98",
+      "auto_submit": false
+    },
+    "dont_like": {
+      "description": "I don't like it (signal only)",
+      "report_type": "sub_dont_like",
+      "breadcrumbs": [7, 97],
+      "variant": "97",
+      "auto_submit": true
+    },
+    "nsfw_gore": {
+      "description": "Gore, animal cruelty, or violent shock content",
+      "report_type": "sub_gore",
+      "breadcrumbs": [7, 86, 108],
+      "variant": "108",
+      "auto_submit": false
+    },
+    "nsfw_unwanted_sexual": {
+      "description": "Unwanted adult sexual images",
+      "report_type": "sub_unsolicited_porn",
+      "breadcrumbs": [7, 86, 109],
+      "variant": "109",
+      "auto_submit": false
+    },
+    "nsfw_degrading": {
+      "description": "Degrading adult pornography",
+      "report_type": "sub_sexually_degrading_content",
+      "breadcrumbs": [7, 86, 110],
+      "variant": "110",
+      "auto_submit": false
+    },
+    "nsfw_revenge_porn": {
+      "description": "Revenge porn or threat to share it",
+      "report_type": "sub_ncp",
+      "breadcrumbs": [7, 86, 111],
+      "variant": "111",
+      "auto_submit": false
+    },
+    "minor_lolicon": {
+      "description": "Illustration sexualizing minors (lolicon, shotacon, cub)",
+      "report_type": "sub_loli",
+      "breadcrumbs": [7, 88, 112],
+      "variant": "112",
+      "auto_submit": false
+    },
+    "minor_sexualizing": {
+      "description": "Talking about minors in sexual way",
+      "report_type": "sub_general_scrm_icwm",
+      "breadcrumbs": [7, 88, 113],
+      "variant": "113",
+      "auto_submit": false
+    },
+    "minor_icwm": {
+      "description": "Sending sexual messages to minor",
+      "report_type": "sub_icwm",
+      "breadcrumbs": [7, 88, 114],
+      "variant": "114",
+      "auto_submit": false
+    },
+    "minor_icaam": {
+      "description": "Minor posting sexual messages",
+      "report_type": "sub_icaam",
+      "breadcrumbs": [7, 88, 115],
+      "variant": "115",
+      "auto_submit": false
+    },
+    "minor_csam": {
+      "description": "Photos/videos of child sexual abuse",
+      "report_type": "sub_csam",
+      "breadcrumbs": [7, 88, 116],
+      "variant": "116",
+      "auto_submit": false
+    },
+    "threat_violence": {
+      "description": "Threat to physically hurt someone",
+      "report_type": "threatening_behavior",
+      "breadcrumbs": [7, 90, 117],
+      "variant": "117",
+      "auto_submit": false
+    },
+    "violence_glorification": {
+      "description": "Celebrating or glorifying violence",
+      "report_type": "sub_glorifying_violence",
+      "breadcrumbs": [7, 90, 118],
+      "variant": "118",
+      "auto_submit": false
+    },
+    "violence_glorification_alt": {
+      "description": "Celebrating violence (via misinfo menu)",
+      "report_type": "sub_glorifying_violence",
+      "breadcrumbs": [7, 94, 118],
+      "variant": "118",
+      "auto_submit": false
+    },
+    "hate_identity_alt": {
+      "description": "Promoting hate (via misinfo menu)",
+      "report_type": "sub_racist_or_discriminatory_language_or_imagery",
+      "breadcrumbs": [7, 94, 107],
+      "variant": "107",
+      "auto_submit": false
+    },
+    "misinformation": {
+      "description": "Spreading fake news or harmful conspiracy theories",
+      "report_type": "sub_hateful_misinformation",
+      "breadcrumbs": [7, 94, 95, 131],
+      "variant": "131",
+      "auto_submit": false
+    },
+    "self_harm_risk": {
+      "description": "Planning to self harm",
+      "report_type": "sub_self_harm_threat",
+      "breadcrumbs": [7, 160, 93, 132],
+      "variant": "132",
+      "auto_submit": false
+    },
+    "self_harm_encouragement": {
+      "description": "Promoting self-harm",
+      "report_type": "sub_self_harm_encouragement",
+      "breadcrumbs": [7, 160, 93, 128],
+      "variant": "128",
+      "auto_submit": false
+    },
+    "suicide_risk": {
+      "description": "Considering suicide",
+      "report_type": "sub_suicide_threat",
+      "breadcrumbs": [7, 160, 93, 133],
+      "variant": "133",
+      "auto_submit": false
+    },
+    "suicide_encouragement": {
+      "description": "Promoting suicide",
+      "report_type": "sub_suicide_encouragement",
+      "breadcrumbs": [7, 160, 93, 129],
+      "variant": "129",
+      "auto_submit": false
+    },
+    "eating_disorder_encouragement": {
+      "description": "Promoting eating disorders",
+      "report_type": "sub_eating_disorder_encouragement",
+      "breadcrumbs": [7, 160, 93, 130],
+      "variant": "130",
+      "auto_submit": false
+    },
+    "underage_confirmed": {
+      "description": "User states they are under 13 in message",
+      "report_type": "sub_coppa",
+      "breadcrumbs": [7, 80, 91, 127],
+      "variant": "127",
+      "auto_submit": false
+    },
+    "fraud_impersonate_user": {
+      "description": "Impersonating me or someone I know",
+      "report_type": "sub_user_impersonation",
+      "breadcrumbs": [7, 80, 121, 163],
+      "variant": "163",
+      "auto_submit": false
+    },
+    "fraud_impersonate_celebrity": {
+      "description": "Impersonating celebrity or public figure",
+      "report_type": "sub_impersonating_public_figure",
+      "breadcrumbs": [7, 80, 121, 164],
+      "variant": "164",
+      "auto_submit": false
+    },
+    "fraud_impersonate_company": {
+      "description": "Impersonating business or organization",
+      "report_type": "sub_employee_impersonation",
+      "breadcrumbs": [7, 80, 121, 165],
+      "variant": "165",
+      "auto_submit": false
+    },
+    "fraud_impersonate_discord": {
+      "description": "Impersonating Discord employee",
+      "report_type": "sub_employee_impersonation",
+      "breadcrumbs": [7, 80, 121, 166],
+      "variant": "166",
+      "auto_submit": false
+    },
+    "fraud_scam": {
+      "description": "Scamming or defrauding",
+      "report_type": "sub_social_engineering",
+      "breadcrumbs": [7, 80, 121, 167],
+      "variant": "167",
+      "auto_submit": false
+    },
+    "hacks_cheats": {
+      "description": "Hacks, cheats, phishing or malicious links",
+      "report_type": "sub_hacks_cheats_malicious_links",
+      "breadcrumbs": [7, 80, 126],
+      "variant": "126",
+      "auto_submit": false
+    },
+    "stolen_accounts": {
+      "description": "Distributing stolen accounts or credit cards",
+      "report_type": "sub_cracked_accounts",
+      "breadcrumbs": [7, 80, 123],
+      "variant": "123",
+      "auto_submit": false
+    },
+    "illicit_goods": {
+      "description": "Selling drugs or illegal goods",
+      "report_type": "sub_illicit_goods",
+      "breadcrumbs": [7, 80, 124],
+      "variant": "124",
+      "auto_submit": false
+    }
+  },
+  "example_payloads": {
+    "harassment_verbal": {
+      "version": "1.0",
+      "variant": "101",
+      "language": "en",
+      "breadcrumbs": [7, 76, 101],
+      "elements": {},
+      "channel_id": "712208961432190987",
+      "message_id": "1519396738992050288",
+      "name": "message"
+    },
+    "spam": {
+      "version": "1.0",
+      "variant": "98",
+      "language": "en",
+      "breadcrumbs": [7, 98],
+      "elements": {},
+      "channel_id": "712208961432190987",
+      "message_id": "1519396738992050288",
+      "name": "message"
+    },
+    "nsfw_gore": {
+      "version": "1.0",
+      "variant": "108",
+      "language": "en",
+      "breadcrumbs": [7, 86, 108],
+      "elements": {},
+      "channel_id": "712208961432190987",
+      "message_id": "1519396738992050288",
+      "name": "message"
+    },
+    "scam": {
+      "version": "1.0",
+      "variant": "167",
+      "language": "en",
+      "breadcrumbs": [7, 80, 121, 167],
+      "elements": {},
+      "channel_id": "712208961432190987",
+      "message_id": "1519396738992050288",
+      "name": "message"
+    }
+  },
+  "node_reference": {
+    "7": "MESSAGE_WELCOME (Root)",
+    "76": "ABUSE_OR_HARASSMENT",
+    "86": "NSFW_UNWANTED",
+    "88": "NSFW_MINOR",
+    "90": "THREAT_IRL",
+    "91": "UNDERAGE_USER",
+    "93": "SELF_HARM",
+    "94": "MISINFO_EXTREMISM",
+    "95": "SPREADING_MISINFO",
+    "97": "MESSAGE_DISLIKE",
+    "98": "MESSAGE_SPAM",
+    "101": "MESSAGE_VERBAL_HARASSMENT",
+    "103": "MESSAGE_VULGAR_LANG_SIGNAL_ONLY",
+    "107": "MESSAGE_HATE_IDENTITY",
+    "108": "MESSAGE_GORE",
+    "109": "MESSAGE_NSFW_UNWANTED",
+    "110": "MESSAGE_NSFW_DEGRADING",
+    "111": "MESSAGE_REVENGE_NCP",
+    "112": "MESSAGE_LOLI",
+    "113": "MESSAGE_SEXUALIZING_MINOR",
+    "114": "MESSAGE_ICWM",
+    "115": "MESSAGE_ICAAM",
+    "116": "MESSAGE_CSAM",
+    "117": "MESSAGE_THREAT_IRL",
+    "118": "MESSAGE_GLORIFY_VIOLENCE",
+    "121": "MESSAGE_FRAUD",
+    "123": "MESSAGE_ATO",
+    "124": "MESSAGE_ILLICIT_GOODS",
+    "126": "MESSAGE_HACKS_CHEATS",
+    "127": "MESSAGE_UNDERAGE_CONFIRM",
+    "128": "MESSAGE_SELF_HARM_ENCOURAGE",
+    "129": "MESSAGE_SUICIDE_ENCOURAGE",
+    "130": "MESSAGE_EATING_DISORDER_ENCOURAGE",
+    "131": "MESSAGE_HARMFUL_MISINFO",
+    "132": "MESSAGE_SELF_HARM_RISK",
+    "133": "MESSAGE_SUICIDE_RISK",
+    "160": "SELF_HARM_INTERSTITIAL",
+    "163": "MESSAGE_IMPERSONATE_USER",
+    "164": "MESSAGE_IMPERSONATE_PUBLIC_FIGURE",
+    "165": "MESSAGE_IMPERSONATE_COMPANY",
+    "166": "MESSAGE_IMPERSONATE_DISCORD_EMPLOYEE",
+    "167": "MESSAGE_SCAM_SOCIAL_ENGINEERING"
+  }
+}
